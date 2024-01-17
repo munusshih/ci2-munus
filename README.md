@@ -1,1 +1,1 @@
-# advanced-product
+# core2-interaction
