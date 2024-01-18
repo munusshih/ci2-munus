@@ -5,8 +5,8 @@
 :root {
 	font-size: 16px;
 
-	--page-margin: 3rem;
-	--page-width: 1600px;
+	--page-margin: 0rem;
+	--page-padding: 1rem;
 
 	--font-family-main: "Chivo Mono", sans-serif;
 	--font-family-code: 'Chivo Mono', monospace;
@@ -16,13 +16,13 @@
 	--font-weight-regular: 400;
 	--font-weight-medium: 500;
 	--font-weight-semibold: 600;
-	--font-weight-bold: 800;
-	--font-size-h1: 1.3rem;
-	--font-size-h2: 1.3rem;
+	--font-weight-bold: 900;
+	--font-size-h1: 20vw;
+	--font-size-h2: 8vw;
 	--font-size-h3: 1rem;
 	--font-size-h4: 0.8rem;
 
-	--black: #000000;
+	--black: var(--light-grey);
 	--off-black: #262626;
 	--dark-grey: #7A7A7A;
 	--light-grey: #F5F5F5;
@@ -34,12 +34,12 @@
 	--blue: #0056FF;
 	--magenta: #FF48FF;
 	--purple: #B56CFF;
-	--bg: hotpink;
+	--bg: #000000;
 
 	--link-arrow-color: var(--black);
 	--slider-button-color: var(--white);
 
-	--border: 1.5px dashed var(--black);
+	--border: 1px solid var(--black);
 
 	--star-1: var(--red);
 	--star-2: var(--orange);
@@ -59,6 +59,7 @@ body {
 	font-family: var(--font-family-main);
 	color: var(--black);
 	line-height: 1.3;
+	letter-spacing: -0.04rem;
 	max-width: var(--page-width);
 	margin: var(--page-margin) auto;
 	padding: 0 var(--page-margin);
@@ -68,17 +69,20 @@ body {
 
 h1 {
 	font-size: var(--font-size-h1);
-	font-weight: var(--font-weight-medium);
-	line-height: 0.95;
-	letter-spacing: -0.05em;
-	max-width: 16ch;
+	font-weight: var(--font-weight-bold);
+	line-height: 0.8;
+	text-transform: uppercase;
+	transform: translate(-0.1rem, -0.1rem);
 	transition: font-size .3s;
+	padding: 0 var(--page-padding);
 }
 
 h2 {
 	font-size: var(--font-size-h2);
-	font-weight: var(--font-size-regular);
-	letter-spacing: -0.03em;
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: -0.05em;
+	line-height: 0.9;
+	max-width: 20ch;
 }
 
 h3,
@@ -91,9 +95,17 @@ a {
 
 h4 {
 	font-size: var(--font-size-h4);
-	font-weight: var(--font-weight-medium);
+	font-weight: var(--font-weight-semibold);
 	text-transform: uppercase;
 	margin-bottom: var(--font-size-h4);
+}
+
+#sessions h4::before {
+	content: "< "
+}
+
+#sessions h4::after {
+	content: " />"
 }
 
 .param label {
@@ -105,18 +117,19 @@ h4 {
 
 a {
 	text-decoration: none;
+	border-bottom: var(--border);
 	color: var(--black);
 }
 
 a:hover {
-	border-bottom: var(--border);
+	border-bottom: 0;
 }
 
 a::after {
 	content: "↗";
 	font-family: var(--font-family-symbols);
 	margin-left: 4px;
-	color: transparent;
+	color: var(--link-arrow-color);
 }
 
 a:hover::after {
@@ -135,9 +148,8 @@ header {
 	padding-bottom: var(--font-size-h3);
 }
 
-section,
 footer {
-	padding: var(--font-size-h3) 0;
+	padding: var(--font-size-h3);
 }
 
 strong {
@@ -233,11 +245,61 @@ ol>li {
 /* DETAILS STYLES */
 
 details {
-	background: var(--white);
-	padding: var(--font-size-h3);
-	margin-top: var(--font-size-h3);
+	/* margin-top: var(--font-size-h3); */
 	margin-bottom: var(--font-size-h3);
 	border-radius: var(--font-size-h1);
+}
+
+#sessions details summary h3 {
+	min-height: 20rem;
+	min-width: 20rem;
+	border-radius: 50%;
+}
+
+#sessions details:nth-of-type(4n + 1) summary h3 {
+	/*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=c08fcb&c2=ab3025&gt=r&gd=dcc
+*/
+	background: #C08FCB;
+	background: radial-gradient(at center, #C08FCB, #AB3025);
+}
+
+#sessions details:nth-of-type(4n + 2) summary h3 {
+	/*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=282ecc&c2=082f6f&gt=r&gd=dcc
+*/
+	background: #282ECC;
+	background: radial-gradient(at center, #282ECC, #082F6F);
+}
+
+#sessions details:nth-of-type(4n + 3) summary h3 {
+	/*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=d4a86a&c2=74bdb3&gt=r&gd=dcc
+*/
+	background: #D4A86A;
+	background: radial-gradient(at center, #D4A86A, #74BDB3);
+}
+
+#sessions details:nth-of-type(4n) summary h3 {
+	/*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=69eb0b&c2=931b32&gt=r&gd=dcc
+*/
+	background: #69EB0B;
+	background: radial-gradient(at center, #69EB0B, #931B32);
+}
+
+/* #sessions details {
+
+	padding: var(--font-size-h3);
+	transition: .3s;
+} */
+
+section {
+	padding: 1rem 0rem;
 }
 
 details>summary {
@@ -246,8 +308,9 @@ details>summary {
 
 summary {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: space-between;
+
 }
 
 summary::-webkit-details-marker {
@@ -255,13 +318,13 @@ summary::-webkit-details-marker {
 }
 
 summary::after {
-	content: "+";
+	content: "▼";
 	font-size: var(--font-size-h3);
 	font-weight: var(--font-weight-bold);
 }
 
 details[open] summary:after {
-	content: "-";
+	content: "▲";
 	font-size: var(--font-size-h3);
 	font-weight: var(--font-weight-bold);
 }
@@ -337,7 +400,8 @@ pre {
 	overflow-x: visible;
 	tab-size: 2;
 	padding: 20px;
-	background-color: var(--light-grey);
+	background-color: var(--bg);
+	outline: 1px solid var(--light-grey);
 	white-space: pre-wrap;
 	white-space: -moz-pre-wrap;
 	white-space: -pre-wrap;
@@ -428,6 +492,10 @@ input[type="checkbox"]:focus+span {
 
 /* UTILITY */
 
+.word-break {
+	word-break: break-all;
+}
+
 .space--after-half {
 	margin-bottom: var(--font-size-h4);
 }
@@ -478,6 +546,18 @@ input[type="checkbox"]:focus+span {
 	gap: 1rem;
 }
 
+.grid article {
+	padding: var(--font-size-h3);
+}
+
+.padding-l {
+	padding-left: var(--font-size-h3);
+}
+
+.border-left {
+	border-left: 1px solid black;
+}
+
 .col-span-1 {
 	grid-column: span 1 / span 1;
 }
@@ -494,6 +574,16 @@ input[type="checkbox"]:focus+span {
 	grid-column: span 4 / span 4;
 }
 
+.padding-1 {
+	padding: var(--font-size-h3);
+
+}
+
+.flex {
+	display: flex;
+	gap: var(--font-size-h4);
+	flex-wrap: wrap;
+}
 
 
 /* DEBUGGING */
@@ -514,11 +604,27 @@ section:nth-of-type(odd) {
 
 @media screen and (max-width: 52rem) {
 	:root {
-		font-size: 20px;
+		--page-margin: 0rem;
+		font-size: 14px;
+	}
+
+	.grid {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#sessions details div article {
+		padding: 0;
+	}
+
+	section article details article {
+		padding: 0;
 	}
 
 	h1 {
-		font-size: 2.5rem;
+		font-size: 5.5rem;
+		transform: translate(-0.1rem, -0.1rem);
+		/* word-break: break-all; */
 	}
 
 	.container--data {
@@ -531,7 +637,7 @@ section:nth-of-type(odd) {
 	}
 }
 
-@media screen and (max-width: 30rem) {
+/* @media screen and (max-width: 30rem) {
 
 	h1 {
 		line-height: 1;
@@ -551,4 +657,4 @@ section:nth-of-type(odd) {
 		max-width: 16ch;
 	}
 
-}
+} */
