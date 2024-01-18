@@ -63,7 +63,6 @@ body {
 	max-width: var(--page-width);
 	margin: var(--page-margin) auto;
 	padding: 0 var(--page-margin);
-	transition: background-color 0.3s;
 }
 
 
