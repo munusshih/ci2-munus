@@ -99,13 +99,13 @@ h4 {
 	margin-bottom: var(--font-size-h4);
 }
 
-#sessions h4::before {
+/* #sessions h4::before {
 	content: "< "
 }
 
 #sessions h4::after {
 	content: " />"
-}
+} */
 
 .param label {
 	font-size: var(--font-size-h4);
