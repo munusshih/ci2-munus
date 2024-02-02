@@ -22,7 +22,6 @@
 	--font-size-h3: 1rem;
 	--font-size-h4: 0.8rem;
 
-	--black: var(--light-grey);
 	--off-black: #262626;
 	--dark-grey: #7A7A7A;
 	--light-grey: #F5F5F5;
@@ -34,12 +33,13 @@
 	--blue: #0056FF;
 	--magenta: #FF48FF;
 	--purple: #B56CFF;
-	--bg: #000000;
+	--background: #000000;
+	--foreground: white;
 
-	--link-arrow-color: var(--black);
+	--foreground: var(--foreground);
 	--slider-button-color: var(--white);
 
-	--border: 1px solid var(--black);
+	--border: 1px solid var(--foreground);
 
 	--star-1: var(--red);
 	--star-2: var(--orange);
@@ -55,9 +55,9 @@ html {
 }
 
 body {
-	background-color: var(--bg);
+	background-color: var(--background);
 	font-family: var(--font-family-main);
-	color: var(--black);
+	color: var(--foreground);
 	line-height: 1.3;
 	letter-spacing: -0.04rem;
 	max-width: var(--page-width);
@@ -76,22 +76,7 @@ h1 {
 	padding: 0 var(--page-padding);
 }
 
-h2 {
-	font-size: var(--font-size-h2);
-	font-weight: var(--font-weight-semibold);
-	letter-spacing: -0.05em;
-	line-height: 0.9;
-	max-width: 20ch;
-}
-
-h3,
-p,
-a {
-	font-size: var(--font-size-h3);
-	font-weight: var(--font-size-regular);
-	letter-spacing: -0.02em;
-}
-
+h2,
 h4 {
 	font-size: var(--font-size-h4);
 	font-weight: var(--font-weight-semibold);
@@ -99,11 +84,25 @@ h4 {
 	margin-bottom: var(--font-size-h4);
 }
 
+h3 {
+	font-size: var(--font-size-h2);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: -0.07em;
+	line-height: 0.9;
+	max-width: 20ch;
+}
+
+p,
+a {
+	font-size: var(--font-size-h3);
+	font-weight: var(--font-size-regular);
+	letter-spacing: -0.02em;
+}
+
 h5 {
 	font-size: var(--font-size-h3);
 	font-weight: var(--font-weight-medium);
 	margin-bottom: var(--font-size-h4);
-	text-decoration: underline;
 }
 
 /* #sessions h4::before {
@@ -124,7 +123,7 @@ h5 {
 a {
 	text-decoration: none;
 	border-bottom: var(--border);
-	color: var(--black);
+	color: var(--foreground);
 }
 
 a:hover {
@@ -135,15 +134,15 @@ a::after {
 	content: "↗";
 	font-family: var(--font-family-symbols);
 	margin-left: 4px;
-	color: var(--link-arrow-color);
+	color: var(--foreground);
 }
 
 a:hover::after {
-	color: var(--link-arrow-color);
+	color: var(--foreground);
 }
 
 a.arrow-visible::after {
-	color: var(--link-arrow-color);
+	color: var(--foreground);
 }
 
 a.arrow-visible:hover::after {
@@ -179,7 +178,7 @@ footer {
 
 #footer--link-top::after {
 	content: "↑";
-	color: var(--link-arrow-color);
+	color: var(--foreground);
 }
 
 /* LIST STYLES */
@@ -240,7 +239,7 @@ ol>li {
 }
 
 .todolist ol li input {
-	accent-color: var(--link-arrow-color);
+	accent-color: var(--foreground);
 	cursor: pointer;
 	transform: scale(1.4) translate(-0.05rem, -.05rem);
 	margin-right: 0.5rem;
@@ -256,13 +255,13 @@ details {
 	border-radius: var(--font-size-h1);
 }
 
-#sessions details summary h3 {
+#sessions details summary h4 {
 	min-height: 20rem;
 	min-width: 20rem;
 	border-radius: 50%;
 }
 
-#sessions details:nth-of-type(4n + 1) summary h3 {
+#sessions details:nth-of-type(4n + 1) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=c08fcb&c2=ab3025&gt=r&gd=dcc
@@ -271,7 +270,7 @@ details {
 	background: radial-gradient(at center, #C08FCB, #AB3025);
 }
 
-#sessions details:nth-of-type(4n + 2) summary h3 {
+#sessions details:nth-of-type(4n + 2) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=282ecc&c2=082f6f&gt=r&gd=dcc
@@ -280,7 +279,7 @@ details {
 	background: radial-gradient(at center, #282ECC, #082F6F);
 }
 
-#sessions details:nth-of-type(4n + 3) summary h3 {
+#sessions details:nth-of-type(4n + 3) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=d4a86a&c2=74bdb3&gt=r&gd=dcc
@@ -289,7 +288,7 @@ details {
 	background: radial-gradient(at center, #D4A86A, #74BDB3);
 }
 
-#sessions details:nth-of-type(4n) summary h3 {
+#sessions details:nth-of-type(4n) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=69eb0b&c2=931b32&gt=r&gd=dcc
@@ -406,7 +405,7 @@ pre {
 	overflow-x: visible;
 	tab-size: 2;
 	padding: 20px;
-	background-color: var(--bg);
+	background-color: var(--background);
 	outline: 1px solid var(--light-grey);
 	white-space: pre-wrap;
 	white-space: -moz-pre-wrap;
@@ -453,7 +452,7 @@ header {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: var(--black);
+	background-color: var(--foreground);
 	-webkit-transition: 0.3s;
 	transition: 0.3s;
 	border-radius: var(--font-size-h1);
@@ -485,12 +484,12 @@ input:checked+.slider:before {
 /* ACCESSIBILITY */
 
 input[type="checkbox"]:focus+span {
-	outline: 3px solid var(--link-arrow-color);
+	outline: 3px solid var(--foreground);
 	outline-offset: 3px;
 }
 
 :focus-visible {
-	outline: 3px solid var(--link-arrow-color);
+	outline: 3px solid var(--foreground);
 	outline-offset: 3px;
 	border-radius: var(--font-size-h1);
 	transition: 0.3s;
@@ -558,10 +557,6 @@ input[type="checkbox"]:focus+span {
 
 .padding-l {
 	padding-left: var(--font-size-h3);
-}
-
-.border-left {
-	border-left: 1px solid black;
 }
 
 .col-span-1 {
