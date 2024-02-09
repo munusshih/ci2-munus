@@ -105,6 +105,19 @@ h5 {
 	margin-bottom: var(--font-size-h4);
 }
 
+code {
+	background: var(--foreground);
+	color: var(--background);
+}
+
+code.html::after{
+	content: '/>'
+}
+
+code.html::before{
+	content: '<'
+}
+
 /* #sessions h4::before {
 	content: "< "
 }
