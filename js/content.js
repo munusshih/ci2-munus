@@ -16,6 +16,7 @@ async function fetchAndInsertContent(targetId, contentUrl) {
 fetchAndInsertContent("week1", "../../weeks/1.html");
 fetchAndInsertContent("week2", "../../weeks/2.html");
 fetchAndInsertContent("week3", "../../weeks/3.html");
+fetchAndInsertContent("week4", "../../weeks/4.html");
 // fetchAndInsertContent("accessible-book", "../../assignments/accessible-book.html");
 // fetchAndInsertContent("experimental-clock", "../../assignments/experimental-clock.html");
 // fetchAndInsertContent("generative-tool", "../../assignments/generative-tool.html");

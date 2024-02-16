@@ -110,11 +110,11 @@ code {
 	color: var(--background);
 }
 
-code.html::after{
+code.html::after {
 	content: '/>'
 }
 
-code.html::before{
+code.html::before {
 	content: '<'
 }
 
@@ -271,14 +271,15 @@ details {
 #sessions details summary h4 {
 	min-height: 20rem;
 	min-width: 20rem;
-	border-radius: 50%;
 }
+
 
 #sessions details:nth-of-type(4n + 1) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=c08fcb&c2=ab3025&gt=r&gd=dcc
 */
+	border-radius: 50% 10%;
 	background: #C08FCB;
 	background: radial-gradient(at center, #C08FCB, #AB3025);
 }
@@ -288,6 +289,7 @@ details {
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=282ecc&c2=082f6f&gt=r&gd=dcc
 */
+	border-radius: 2% 10% 30px 35rem;
 	background: #282ECC;
 	background: radial-gradient(at center, #282ECC, #082F6F);
 }
@@ -297,6 +299,7 @@ details {
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=d4a86a&c2=74bdb3&gt=r&gd=dcc
 */
+	border-radius: 2px 30px 25% 35% / 30rem 35%;
 	background: #D4A86A;
 	background: radial-gradient(at center, #D4A86A, #74BDB3);
 }
@@ -306,9 +309,14 @@ details {
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=69eb0b&c2=931b32&gt=r&gd=dcc
 */
-	background: #69EB0B;
-	background: radial-gradient(at center, #69EB0B, #931B32);
+	border-radius: 0% 100% 64% 36% / 0% 38% 62% 100%;
+	background: #eb8052;
+	background: radial-gradient(at center, #eb8052 0%, #ec625f 6.564%, #e97f6c 34.505%, #eb7f38 81.996%, #919191 100%);
 }
+
+/* #sessions details summary h4:hover {
+	border-radius: 50%;
+} */
 
 /* #sessions details {
 
