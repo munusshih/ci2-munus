@@ -19,8 +19,9 @@
 	--font-weight-bold: 900;
 	--font-size-h1: 20vw;
 	--font-size-h2: 8vw;
-	--font-size-h3: 1rem;
-	--font-size-h4: 0.8rem;
+	--font-size-h3: 1.2rem;
+	--font-size-h4: 1rem;
+	--font-size-b1: 1rem;
 
 	--off-black: #262626;
 	--dark-grey: #7A7A7A;
@@ -106,8 +107,8 @@ h5 {
 }
 
 code {
-	background: var(--foreground);
-	color: var(--background);
+	color: var(--foreground);
+	font-size: var(--font-size-b1);
 }
 
 code.html::after {
@@ -427,7 +428,8 @@ pre {
 	tab-size: 2;
 	padding: 20px;
 	background-color: var(--background);
-	outline: 1px solid var(--light-grey);
+	outline: 1px solid var(--foreground);
+	border-radius: 6px;
 	white-space: pre-wrap;
 	white-space: -moz-pre-wrap;
 	white-space: -pre-wrap;
