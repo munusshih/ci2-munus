@@ -105,6 +105,11 @@ h5 {
 	margin-bottom: var(--font-size-h3);
 }
 
+ul>li>h5:not(:has(a)) {
+	width: max-content;
+	border-bottom: var(--border);
+}
+
 code {
 	color: var(--foreground);
 	font-size: var(--font-size-b1);
@@ -347,7 +352,6 @@ summary {
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
-
 }
 
 summary::-webkit-details-marker {
@@ -410,6 +414,10 @@ p {
 .container--data {
 	display: flex;
 	justify-content: space-between;
+}
+
+ul.padding-1.flex.col-span-3 {
+	gap: 1rem;
 }
 
 .container--data ul {
@@ -615,7 +623,7 @@ input[type="checkbox"]:focus+span {
 
 .flex {
 	display: flex;
-	gap: var(--font-size-h4);
+	gap: 2rem;
 	flex-wrap: wrap;
 }
 
