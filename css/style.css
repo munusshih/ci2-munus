@@ -3,8 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-	font-size: 16px;
-
 	--page-margin: 0rem;
 	--page-padding: 1rem;
 
@@ -17,11 +15,12 @@
 	--font-weight-medium: 500;
 	--font-weight-semibold: 600;
 	--font-weight-bold: 900;
-	--font-size-h1: 20vw;
-	--font-size-h2: 8vw;
-	--font-size-h3: 1.2rem;
-	--font-size-h4: 1rem;
-	--font-size-b1: 1rem;
+	--font-size-h1: clamp(1rem, 0.95rem + 18vw, 200rem);
+	--font-size-h2: clamp(1rem, 1rem + 7vw, 200rem);
+	--font-size-h3: clamp(1rem, 0.95rem + .25vw, 1.25rem);
+	--font-size-h4: clamp(1rem, 0.95rem + .25vw 1.25rem);
+	--margin-size: 2rem;
+	--font-size-b1: clamp(1rem, 0.95rem + .25vw, 1.25rem);
 
 	--off-black: #262626;
 	--dark-grey: #7A7A7A;
@@ -82,7 +81,7 @@ h4 {
 	font-size: var(--font-size-h4);
 	font-weight: var(--font-weight-semibold);
 	text-transform: uppercase;
-	margin-bottom: var(--font-size-h4);
+	margin-bottom: var(--font-size-h3);
 }
 
 h3 {
@@ -103,7 +102,7 @@ a {
 h5 {
 	font-size: var(--font-size-h3);
 	font-weight: var(--font-weight-medium);
-	margin-bottom: var(--font-size-h4);
+	margin-bottom: var(--font-size-h3);
 }
 
 code {
@@ -275,7 +274,7 @@ details {
 }
 
 
-#sessions details:nth-of-type(4n + 1) summary h4 {
+#sessions details:nth-of-type(15n + 1) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=c08fcb&c2=ab3025&gt=r&gd=dcc
@@ -285,7 +284,7 @@ details {
 	background: radial-gradient(at center, #C08FCB, #AB3025);
 }
 
-#sessions details:nth-of-type(4n + 2) summary h4 {
+#sessions details:nth-of-type(15n + 2) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=282ecc&c2=082f6f&gt=r&gd=dcc
@@ -295,7 +294,7 @@ details {
 	background: radial-gradient(at center, #282ECC, #082F6F);
 }
 
-#sessions details:nth-of-type(4n + 3) summary h4 {
+#sessions details:nth-of-type(15n + 3) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=d4a86a&c2=74bdb3&gt=r&gd=dcc
@@ -305,15 +304,26 @@ details {
 	background: radial-gradient(at center, #D4A86A, #74BDB3);
 }
 
-#sessions details:nth-of-type(4n) summary h4 {
+#sessions details:nth-of-type(15n + 4) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=69eb0b&c2=931b32&gt=r&gd=dcc
+* Gradient link: https://www.css-gradient.com/?c1=d4a86a&c2=74bdb3&gt=r&gd=dcc
 */
 	border-radius: 0% 100% 64% 36% / 0% 38% 62% 100%;
 	background: #eb8052;
 	background: radial-gradient(at center, #eb8052 0%, #ec625f 6.564%, #e97f6c 34.505%, #eb7f38 81.996%, #919191 100%);
 }
+
+#sessions details:nth-of-type(15n + 5) summary h4 {
+	/*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=d4a86a&c2=74bdb3&gt=r&gd=dcc
+*/
+	border-radius: 100% 0% 0% 100% / 53% 69% 31% 47%;
+	background: #F309CC;
+	background: radial-gradient(at left top, #F309CC, #9ACB55);
+}
+
 
 /* #sessions details summary h4:hover {
 	border-radius: 50%;
@@ -629,7 +639,11 @@ section:nth-of-type(odd) {
 @media screen and (max-width: 52rem) {
 	:root {
 		--page-margin: 0rem;
-		font-size: 14px;
+	}
+
+	ul.flex {
+		flex-direction: column;
+
 	}
 
 	.grid {
