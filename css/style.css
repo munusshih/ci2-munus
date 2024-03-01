@@ -329,6 +329,16 @@ details {
 	background: radial-gradient(at left top, #F309CC, #9ACB55);
 }
 
+#sessions details:nth-of-type(15n + 6) summary h4 {
+	border-radius: 70% 10% 10% 10% / 69% 10% 10% 10%;
+/*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=4994bc&c2=02504b&gt=r&gd=dtl
+*/
+background: #4994BC;
+background: radial-gradient(at left top, #4994BC, #02504B);
+}
+
 
 /* #sessions details summary h4:hover {
 	border-radius: 50%;
