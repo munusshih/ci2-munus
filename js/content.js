@@ -13,12 +13,14 @@ async function fetchAndInsertContent(targetId, contentUrl) {
     }
 }
 
-fetchAndInsertContent("week1", "../../weeks/1.html");
-fetchAndInsertContent("week2", "../../weeks/2.html");
-fetchAndInsertContent("week3", "../../weeks/3.html");
-fetchAndInsertContent("week4", "../../weeks/4.html");
-fetchAndInsertContent("week5", "../../weeks/5.html");
-fetchAndInsertContent("week6", "../../weeks/6.html");
+const week = 7
+
+for (let i = 1; i <= 15; i++) {
+    let weekNumber = "week" + i;
+    let weekUrl = `../../weeks/${i}.html`;
+    fetchAndInsertContent(weekNumber, weekUrl);
+}
+
 // fetchAndInsertContent("accessible-book", "../../assignments/accessible-book.html");
 // fetchAndInsertContent("experimental-clock", "../../assignments/experimental-clock.html");
 // fetchAndInsertContent("generative-tool", "../../assignments/generative-tool.html");
