@@ -267,10 +267,16 @@ ol>li {
 
 /* DETAILS STYLES */
 
-details {
+#sessions details {
 	/* margin-top: var(--font-size-h3); */
 	margin-bottom: var(--font-size-h3);
 	border-radius: var(--font-size-h1);
+	width: 20rem;
+	transition: width .3s;
+}
+
+#sessions details[open]{
+	width: 100%;
 }
 
 #sessions details summary h4 {
@@ -279,7 +285,7 @@ details {
 }
 
 
-#sessions details:nth-of-type(15n + 1) summary h4 {
+#unit-1 details:nth-of-type(15n + 1) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=c08fcb&c2=ab3025&gt=r&gd=dcc
@@ -289,7 +295,7 @@ details {
 	background: radial-gradient(at center, #C08FCB, #AB3025);
 }
 
-#sessions details:nth-of-type(15n + 2) summary h4 {
+#unit-1 details:nth-of-type(15n + 2) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=282ecc&c2=082f6f&gt=r&gd=dcc
@@ -299,7 +305,7 @@ details {
 	background: radial-gradient(at center, #282ECC, #082F6F);
 }
 
-#sessions details:nth-of-type(15n + 3) summary h4 {
+#unit-1 details:nth-of-type(15n + 3) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=d4a86a&c2=74bdb3&gt=r&gd=dcc
@@ -309,7 +315,7 @@ details {
 	background: radial-gradient(at center, #D4A86A, #74BDB3);
 }
 
-#sessions details:nth-of-type(15n + 4) summary h4 {
+#unit-1 details:nth-of-type(15n + 4) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=d4a86a&c2=74bdb3&gt=r&gd=dcc
@@ -319,7 +325,7 @@ details {
 	background: radial-gradient(at center, #eb8052 0%, #ec625f 6.564%, #e97f6c 34.505%, #eb7f38 81.996%, #919191 100%);
 }
 
-#sessions details:nth-of-type(15n + 5) summary h4 {
+#unit-1 details:nth-of-type(15n + 5) summary h4 {
 	/*
 * Created with https://www.css-gradient.com
 * Gradient link: https://www.css-gradient.com/?c1=d4a86a&c2=74bdb3&gt=r&gd=dcc
@@ -329,7 +335,7 @@ details {
 	background: radial-gradient(at left top, #F309CC, #9ACB55);
 }
 
-#sessions details:nth-of-type(15n + 6) summary h4 {
+#unit-1 details:nth-of-type(15n + 6) summary h4 {
 	border-radius: 70% 10% 10% 10% / 69% 10% 10% 10%;
 /*
 * Created with https://www.css-gradient.com
@@ -337,6 +343,25 @@ details {
 */
 background: #4994BC;
 background: radial-gradient(at left top, #4994BC, #02504B);
+}
+
+#unit-1 details summary h4{
+	transition: border-radius 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#unit-1 details summary h4:hover, #unit-1 details[open] summary h4{
+	border-radius: 50%;
+}
+
+#unit-2 details summary h4 {
+	border-radius: 70% 10% 10% 10% / 69% 10% 10% 10%;
+	/*
+	* Created with https://www.css-gradient.com
+	* Gradient link: https://www.css-gradient.com/?c1=4994bc&c2=02504b&gt=r&gd=dtl
+	*/
+	background: linear-gradient(var(--background), var(--background)) padding-box,
+	linear-gradient(to right, darkblue, #4994BC, darkorchid) border-box;
+	border: 4px solid transparent;
 }
 
 
@@ -370,12 +395,13 @@ summary::-webkit-details-marker {
 
 summary::after {
 	content: "▼";
+	transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 	font-size: var(--font-size-h3);
 	font-weight: var(--font-weight-bold);
 }
 
 details[open] summary:after {
-	content: "▲";
+	transform:rotate(-180deg);
 	font-size: var(--font-size-h3);
 	font-weight: var(--font-weight-bold);
 }
@@ -605,6 +631,12 @@ input[type="checkbox"]:focus+span {
 .grid article {
 	padding: var(--font-size-h3);
 }
+
+#sessions details article, #policies details article {
+	padding-left: 0;
+}
+
+/* WRAPPER STYLES */
 
 .padding-l {
 	padding-left: var(--font-size-h3);
