@@ -1,26 +1,34 @@
 async function fetchAndInsertContent(targetId, contentUrl) {
-    try {
-        const response = await fetch(contentUrl);
-        const data = await response.text();
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            targetElement.innerHTML = data;
-        } else {
-            console.error(`Element with id '${targetId}' not found.`);
-        }
-    } catch (error) {
-        console.error(`Error fetching or inserting content: ${error}`);
+    const response = await fetch(contentUrl);
+    const data = await response.text();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        targetElement.innerHTML = data;
+    } else {
+        console.error(`Failed to fetch or insert content for week '${targetId}':`);
+        return null;
     }
 }
 
-const week = 7
+async function loadEachWeek(totalWeeks) {
+    const promises = [];
+    for (let i = 1; i <= totalWeeks; i++) {
+        let weekNumber = "week" + i;
+        let weekUrl = `../../weeks/${i}.html`;
+        const promise = await fetchAndInsertContent(weekNumber, weekUrl);
 
-for (let i = 1; i <= 15; i++) {
-    let weekNumber = "week" + i;
-    let weekUrl = `../../weeks/${i}.html`;
-    fetchAndInsertContent(weekNumber, weekUrl);
-}
+        if (promise === null) {
+            break;
+        } else {
+            promises.push(promise); // Only push the promise if it's not null
+        }
+    }
 
-// fetchAndInsertContent("accessible-book", "../../assignments/accessible-book.html");
-// fetchAndInsertContent("experimental-clock", "../../assignments/experimental-clock.html");
-// fetchAndInsertContent("generative-tool", "../../assignments/generative-tool.html");
+    // Wait for all promises to resolve
+    await Promise.allSettled(promises);
+
+    // Call allInteractions after all content insertions have finished
+    allInteractions();
+};
+
+loadEachWeek(15);

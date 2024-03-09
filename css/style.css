@@ -275,7 +275,7 @@ ol>li {
 	transition: width .3s;
 }
 
-#sessions details[open]{
+#sessions details[open] {
 	width: 100%;
 }
 
@@ -286,50 +286,30 @@ ol>li {
 
 
 #unit-1 details:nth-of-type(15n + 1) summary h4 {
-	/*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=c08fcb&c2=ab3025&gt=r&gd=dcc
-*/
 	border-radius: 50% 10%;
 	background: #C08FCB;
 	background: radial-gradient(at center, #C08FCB, #AB3025);
 }
 
 #unit-1 details:nth-of-type(15n + 2) summary h4 {
-	/*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=282ecc&c2=082f6f&gt=r&gd=dcc
-*/
 	border-radius: 2% 10% 30px 35rem;
 	background: #282ECC;
 	background: radial-gradient(at center, #282ECC, #082F6F);
 }
 
 #unit-1 details:nth-of-type(15n + 3) summary h4 {
-	/*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=d4a86a&c2=74bdb3&gt=r&gd=dcc
-*/
 	border-radius: 2px 30px 25% 35% / 30rem 35%;
 	background: #D4A86A;
 	background: radial-gradient(at center, #D4A86A, #74BDB3);
 }
 
 #unit-1 details:nth-of-type(15n + 4) summary h4 {
-	/*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=d4a86a&c2=74bdb3&gt=r&gd=dcc
-*/
 	border-radius: 0% 100% 64% 36% / 0% 38% 62% 100%;
 	background: #eb8052;
 	background: radial-gradient(at center, #eb8052 0%, #ec625f 6.564%, #e97f6c 34.505%, #eb7f38 81.996%, #919191 100%);
 }
 
 #unit-1 details:nth-of-type(15n + 5) summary h4 {
-	/*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=d4a86a&c2=74bdb3&gt=r&gd=dcc
-*/
 	border-radius: 100% 0% 0% 100% / 53% 69% 31% 47%;
 	background: #F309CC;
 	background: radial-gradient(at left top, #F309CC, #9ACB55);
@@ -337,43 +317,25 @@ ol>li {
 
 #unit-1 details:nth-of-type(15n + 6) summary h4 {
 	border-radius: 70% 10% 10% 10% / 69% 10% 10% 10%;
-/*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=4994bc&c2=02504b&gt=r&gd=dtl
-*/
-background: #4994BC;
-background: radial-gradient(at left top, #4994BC, #02504B);
+	background: #4994BC;
+	background: radial-gradient(at left top, #4994BC, #02504B);
 }
 
-#unit-1 details summary h4{
+#unit-1 details summary h4 {
 	transition: border-radius 4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-#unit-1 details summary h4:hover, #unit-1 details[open] summary h4{
+#unit-1 details summary h4:hover,
+#unit-1 details[open] summary h4 {
 	border-radius: 50%;
 }
 
 #unit-2 details summary h4 {
 	border-radius: 70% 10% 10% 10% / 69% 10% 10% 10%;
-	/*
-	* Created with https://www.css-gradient.com
-	* Gradient link: https://www.css-gradient.com/?c1=4994bc&c2=02504b&gt=r&gd=dtl
-	*/
 	background: linear-gradient(var(--background), var(--background)) padding-box,
-	linear-gradient(to right, darkblue, #4994BC, darkorchid) border-box;
+		linear-gradient(to right, darkblue, #4994BC, darkorchid) border-box;
 	border: 4px solid transparent;
 }
-
-
-/* #sessions details summary h4:hover {
-	border-radius: 50%;
-} */
-
-/* #sessions details {
-
-	padding: var(--font-size-h3);
-	transition: .3s;
-} */
 
 section {
 	padding: 1rem 0rem;
@@ -401,7 +363,7 @@ summary::after {
 }
 
 details[open] summary:after {
-	transform:rotate(-180deg);
+	transform: rotate(-180deg);
 	font-size: var(--font-size-h3);
 	font-weight: var(--font-weight-bold);
 }
@@ -421,14 +383,6 @@ details article {
 p {
 	max-width: 75ch;
 }
-
-/* Arbritary number oops! */
-/* li p {
-	margin-left: 30px;
-} */
-
-
-
 
 
 /* SECTION: DATA */
@@ -632,7 +586,8 @@ input[type="checkbox"]:focus+span {
 	padding: var(--font-size-h3);
 }
 
-#sessions details article, #policies details article {
+#sessions details article,
+#policies details article {
 	padding-left: 0;
 }
 
@@ -658,7 +613,7 @@ input[type="checkbox"]:focus+span {
 	grid-column: span 4 / span 4;
 }
 
-.col-start-2{
+.col-start-2 {
 	grid-column-start: 2;
 }
 
@@ -674,17 +629,47 @@ input[type="checkbox"]:focus+span {
 }
 
 
-/* DEBUGGING */
+/* SLIDER */
 
-/* section:nth-of-type(even) {
-    background-color: olivedrab;
+input[type="range"] {
+	-webkit-appearance: none;
+	appearance: none;
+	cursor: pointer;
+	outline: none;
+
+	height: 1px;
+	background: var(--foreground);
+	transform: translate(0, -5px);
+	border-radius: 16px;
 }
 
-section:nth-of-type(odd) {
-    background-color: plum;
-} */
+/* Track: webkit browsers */
+input[type="range"]::-webkit-slider-runnable-track {
+	height: 0px;
+	background: var(--foreground);
+	border-radius: 16px;
+}
 
+/* Track: Mozilla Firefox */
+input[type="range"]::-moz-range-track {
+	height: 1px;
+	background: var(--foreground);
+	transform: translate(0, -5px);
+	border-radius: 16px;
+}
 
+input[type="range"]::-webkit-slider-thumb {
+	/* removing default appearance */
+	-webkit-appearance: none;
+	appearance: none;
+	/* creating a custom design */
+	transform: translate(0, -7.5px);
+	height: 15px;
+	width: 15px;
+	background-color: var(--background);
+	border-radius: 50%;
+	border: 1px solid var(--foreground);
+  }
 
 
 

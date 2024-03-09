@@ -24,3 +24,19 @@ toggleDarkMode();
 
 // Listen for changes in dark mode preference
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', toggleDarkMode);
+
+
+/* -------------session 2 interaction----------------- */
+
+function allInteractions() {
+    const week7slider = document.querySelector("#week7-slider");
+    const week7box = document.querySelector("#week7-box");
+    const week7label = document.getElementById("week7-slider-label");
+
+    week7slider.addEventListener("input", function () {
+        const rotationAngle = week7slider.value + "deg";
+        week7box.style.setProperty("transform", "rotate(" + rotationAngle + ")");
+        week7label.textContent = `[${rotationAngle}]`.replace("deg", "°");
+    });
+
+}
