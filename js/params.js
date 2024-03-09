@@ -29,14 +29,58 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', tog
 /* -------------session 2 interaction----------------- */
 
 function allInteractions() {
-    const week7slider = document.querySelector("#week7-slider");
-    const week7box = document.querySelector("#week7-box");
-    const week7label = document.getElementById("week7-slider-label");
+    function setupWeekFunctionality(weekNumber, transformationType) {
+        const details = document.querySelector(`#week${weekNumber}-details`);
+        const input = document.querySelector(`#week${weekNumber}-input`);
+        const box = document.querySelector(`#week${weekNumber}-box`);
+        const label = document.querySelector(`#week${weekNumber}-input~label`);
 
-    week7slider.addEventListener("input", function () {
-        const rotationAngle = week7slider.value + "deg";
-        week7box.style.setProperty("transform", "rotate(" + rotationAngle + ")");
-        week7label.textContent = `[${rotationAngle}]`.replace("deg", "°");
-    });
+        input.addEventListener("input", function () {
+            const num = input.value + "deg";
+            box.style.setProperty("transform", `${transformationType}(${num})`);
+            label.textContent = `[${num}]`.replace("deg", "°");
+        });
+
+        details.addEventListener("toggle", function () {
+            if (!details.open) {
+                input.value = 0;
+                box.style.setProperty("transform", "none");
+                label.textContent = `[0°]`;
+            }
+        });
+    }
+
+    setupWeekFunctionality(7, "rotate");
+    setupWeekFunctionality(8, "skew");
 
 }
+
+let intervalId = null;
+let timer = 1;
+
+function stepInput(inputId, step) {
+    const input = document.getElementById(inputId);
+    if (step > 0) {
+        input.stepUp();
+    } else {
+        input.stepDown();
+    }
+    input.dispatchEvent(new Event("input"));
+}
+
+function startStepInput(inputId, step) {
+    timer = 1;
+    stepInput(inputId, step);
+    intervalId = setInterval(() => {
+        timer+=0.1;
+        for(let i=0; i<parseInt(timer); i++){
+            stepInput(inputId, step);
+        }
+    }, 100); // Adjust the interval as needed
+}
+
+function stopStepInput() {
+    clearInterval(intervalId);
+}
+
+
