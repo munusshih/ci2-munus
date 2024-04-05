@@ -388,6 +388,14 @@ ol>li {
 	transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+#unit-2 details:nth-of-type(15n + 5) summary h4 {
+	border-radius: 0% 0% 0% 50% / 50%;
+	background: linear-gradient(var(--background), var(--background)) padding-box,
+		radial-gradient(#b400cc, #91129a, #ccff00, rgb(208, 208, 255)) border-box;
+	border: 5px solid transparent;
+	transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
 #star-six {
 	width: 0;
 	height: 0;

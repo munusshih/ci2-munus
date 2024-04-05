@@ -29,7 +29,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', tog
 /* -------------session 2 interaction----------------- */
 
 function allInteractions() {
-    function setupWeekFunctionality(weekNumber, transformationType, unit, replacement) {
+    function setupWeekFunctionality(weekNumber, style, transformationType, unit, replacement) {
         const details = document.querySelector(`#week${weekNumber}-details`);
         const input = document.querySelector(`#week${weekNumber}-input`);
         const box = document.querySelector(`#week${weekNumber}-box`);
@@ -37,23 +37,24 @@ function allInteractions() {
 
         input.addEventListener("input", function () {
             const num = input.value + unit;
-            box.style.setProperty("transform", `${transformationType}(${num})`);
+            box.style.setProperty(style, `${transformationType}(${num})`);
             label.textContent = `[${num}]`.replace(unit, replacement);
         });
 
         details.addEventListener("toggle", function () {
             if (!details.open) {
                 input.value = 0;
-                box.style.setProperty("transform", "none");
+                box.style.setProperty(style, "none");
                 label.textContent = `[0${replacement}]`;
             }
         });
     }
 
-    setupWeekFunctionality(6, "translateX", "px", "px");
-    setupWeekFunctionality(7, "rotate", "deg", "°");
-    setupWeekFunctionality(8, "skew", "deg", "°");
-    setupWeekFunctionality(9, "scale", "", "");
+    setupWeekFunctionality(6, "transform", "translateX", "px", "px");
+    setupWeekFunctionality(7, "transform", "rotate", "deg", "°");
+    setupWeekFunctionality(8, "transform", "skew", "deg", "°");
+    setupWeekFunctionality(9, "transform", "scale", "", "");
+    setupWeekFunctionality(10, "filter", "blur", "px", "px");
 
 }
 
