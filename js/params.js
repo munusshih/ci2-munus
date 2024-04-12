@@ -96,9 +96,9 @@ function updateClock() {
     const minuteHand = document.querySelector('.minute-hand');
     const secondHand = document.querySelector('.second-hand');
 
-    const hourDegrees = (hours % 12) * 30 + minutes / 2;
-    const minuteDegrees = minutes * 6 + seconds / 10;
-    const secondDegrees = seconds * 6;
+    const hourDegrees = (hours % 12) * 30 + minutes / 2 + 180;
+    const minuteDegrees = minutes * 6 + seconds / 10 + 180;
+    const secondDegrees = seconds * 6 + 180;
 
     hourHand.style.transform = `rotate(${hourDegrees}deg)`;
     minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
