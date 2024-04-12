@@ -1,0 +1,104 @@
+.clock {
+    position: absolute;
+    width: 335px;
+    height: 335px;
+	background: radial-gradient(circle, rgba(238,174,202,1) 25%, rgba(148,187,233,1) 50%);
+    border-radius: 50%;
+    transition: all 0.5s;
+	background-size: 200% 200%;
+	animation: gradient 15s ease infinite;
+    box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.1);
+
+}
+
+.clock::before {
+    content: "";
+    position: absolute;
+    width: 235px;
+    height: 235px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	background: radial-gradient(circle, rgba(148,187,233,1) 25%, rgba(238,174,202,1) 50%);
+    border-radius: 50%;
+    transition: all 0.5s;
+	background-size: 200% 200%;
+	animation: gradient 15s 1s ease infinite alternate-reverse;
+    filter: blur(5px);
+    border-left: 1px solid var(--background);
+}
+
+.clock::after {
+    content: "";
+    position: absolute;
+    width: 105px;
+    height: 105px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    border-radius: 50%;
+    transition: all 0.5s;
+	background-size: 200% 200%;
+	animation: gradient 15s 2s ease infinite alternate-reverse;
+    filter: blur(5px);
+    border-top: 1px solid var(--background);
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.hour-hand, .minute-hand, .second-hand, .center {
+    position: absolute;
+    background-color: var(--foreground);
+}
+
+.hour-hand {
+    width: 4px;
+    height: 40px;
+    top: 50%;
+    left: calc(50% - 2px);
+    transform-origin: 2px 0%;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.minute-hand {
+    width: 4px;
+    height: 60px;
+    top: 50%;
+    left: calc(50% - 2px);
+    transform-origin: 2px 0%;
+    border-radius: 50%;
+    z-index: 11;
+}
+
+.second-hand {
+    width: 2px;
+    height: 80px;
+    top: 50%;
+    left: calc(50% - 1px);
+    transform-origin: 1px 0%;
+    border-radius: 50%;
+    z-index: 12;
+}
+
+.center {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--foreground);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 13;
+}
