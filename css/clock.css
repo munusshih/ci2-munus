@@ -8,7 +8,6 @@
 	background-size: 200% 200%;
 	animation: gradient 15s ease infinite;
     box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.1);
-
 }
 
 .clock::before {
@@ -45,6 +44,46 @@
     border-top: 1px solid var(--background);
 }
 
+.week-12-clock {
+    position: absolute;
+    width: 335px;
+    height: 335px;
+    background: black;
+    transition: all 0.5s;
+	background-size: 200% 200%;
+	animation: none;
+    box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 100%;
+}
+
+.week-12-clock::before{
+    width: 100px;
+    height: 100px;
+    z-index: 100000;
+    background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+    border-radius: 1px;
+    filter: none;
+    transform: translate(-200%, -100%) rotate(0deg);
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.week-12-clock::after{
+    width: 180px;
+    height: 180px;
+    z-index: 100000;
+    background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+    border-radius: 1px;
+    filter: none;
+    transform: translate(10%, 0) rotate(0deg);
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -73,6 +112,35 @@
     transition: all 0.5s;
 }
 
+.week-12-hour{
+    width: 0px;
+    height: 0px;
+    background: none;
+    border-radius: 0;
+    border-left: 23px solid transparent;
+    border-right: 23px solid transparent;
+    border-bottom: 46px solid yellow; /* Change color as needed */
+    top: calc(50% + 80px);
+    left: calc(50% - 23px);
+    transform-origin: 23px -80px;
+}
+
+.week-12-hour::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 0px;
+    background: none;
+    border-radius: 0;
+    border-left: 23px solid transparent;
+    border-right: 23px solid transparent;
+    border-bottom: 46px solid yellow; /* Change color as needed */
+    transform: translate(-50%, 0%);
+    filter: blur(5px);
+}
+
 .minute-hand {
     width: 4px;
     height: 60px;
@@ -84,6 +152,16 @@
     transition: all 0.5s;
 }
 
+.week-12-minute{
+    width: 40px;
+    height: 40px;
+    background: blue;
+    border-radius: 0%;
+    top: calc(50% + 60px);
+    left: calc(50% - 20px);
+    transform-origin: 20px -60px;
+}
+
 .second-hand {
     width: 2px;
     height: 80px;
@@ -93,6 +171,15 @@
     border-radius: 50%;
     z-index: 12;
     transition: all 1s;
+}
+
+.week-12-second{
+    width: 40px;
+    height: 40px;
+    background: red;
+    top: calc(50% + 20px);
+    left: calc(50% - 20px);
+    transform-origin: 20px -20px;
 }
 
 .center {

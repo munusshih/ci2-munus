@@ -92,17 +92,25 @@ function updateClock() {
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
 
-    const hourHand = document.querySelector('.hour-hand');
-    const minuteHand = document.querySelector('.minute-hand');
-    const secondHand = document.querySelector('.second-hand');
+    const hourHands = document.querySelectorAll('.hour-hand');
+    const minuteHands = document.querySelectorAll('.minute-hand');
+    const secondHands = document.querySelectorAll('.second-hand');
 
     const hourDegrees = (hours % 12) * 30 + minutes / 2 + 180;
     const minuteDegrees = minutes * 6 + seconds / 10 + 180;
     const secondDegrees = seconds * 6 + 180;
 
-    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-    minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
-    secondHand.style.transform = `rotate(${secondDegrees}deg)`;
+    hourHands.forEach(hand => {
+        hand.style.transform = `rotate(${hourDegrees}deg)`;
+    });
+
+    minuteHands.forEach(hand => {
+        hand.style.transform = `rotate(${minuteDegrees}deg)`;
+    });
+
+    secondHands.forEach(hand => {
+        hand.style.transform = `rotate(${secondDegrees}deg)`;
+    });
 }
 
 setInterval(updateClock, 1000);
