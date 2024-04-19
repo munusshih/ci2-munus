@@ -48,11 +48,11 @@
     position: absolute;
     width: 335px;
     height: 335px;
-    background: black;
+    background: var(--foreground);
     transition: all 0.5s;
 	background-size: 200% 200%;
 	animation: none;
-    box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 5px var(--foreground);
     border-radius: 100%;
 }
 
