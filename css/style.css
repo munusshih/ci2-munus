@@ -458,7 +458,7 @@ details article {
 	margin-top: var(--font-size-h3);
 }
 
-p {
+p, li {
 	max-width: 75ch;
 }
 
