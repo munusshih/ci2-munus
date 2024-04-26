@@ -35,8 +35,6 @@
 	--purple: #B56CFF;
 	--background: #000000;
 	--foreground: white;
-
-	--foreground: var(--foreground);
 	--slider-button-color: var(--white);
 
 	--border: 1px solid var(--foreground);
