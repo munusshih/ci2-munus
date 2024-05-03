@@ -193,12 +193,13 @@
     z-index: 13;
 }
 
-#p5clock{
+.p5sketch{
     position: relative;
 }
 
-#p5clock canvas{
+.p5sketch canvas{
     position: absolute;
     left: 0;
     top: 0;
+    border-radius: 50%;
 }
