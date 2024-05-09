@@ -83,3 +83,58 @@ let clock2 = function(p) {
 };
 
 new p5(clock2, 'p5clockclock');
+
+let colorClock = function(p) {
+    let walker = [];
+    let colorList = ['#F21D2F', '#F27999', '#0F398C', '#107329', '#F2911B', '#0D0D0D', '#F21D2F', '#F27999', '#0F398C', '#107329', '#F2911B', '#ffffff'];
+
+    p.setup = function() {
+        p.createCanvas(335, 335);
+        p.noStroke();
+
+        for (let i = 0; i < 100; i++) {
+            walker.push(new Walker());
+        }
+    };
+
+    p.draw = function() {
+        if (p.frameCount % 10000 === 0) {
+            p.clear();
+        }
+        for (let i = 0; i < walker.length; i++) {
+            walker[i].draw();
+            walker[i].walk();
+        }
+    };
+
+    class Walker {
+        constructor() {
+            this.color = p.random(colorList);
+            this.currentRadius = p.random(p.width / 2);
+            this.currentAngle = p.max(p.random(360), p.random(360));
+            this.currentSize = p.min(p.random(p.width / 20), p.random(p.width / 20));
+            this.radWalk = (p.random(-3, 3) + p.random(-3, 3)) / 2;
+            this.angWalk = p.random(-0.03, 0.03);
+            this.sizeWalk = (p.random(-3, 3) + p.random(-3, 3)) / 2;
+        }
+        draw() {
+            p.fill(this.color);
+            p.ellipse(p.width / 2 + this.currentRadius * p.cos(this.currentAngle),
+                p.height / 2 + this.currentRadius * p.sin(this.currentAngle), this.currentSize);
+        }
+        walk() {
+            if (this.currentRadius + this.radWalk < 300) {
+                this.currentRadius += this.radWalk;
+                this.currentAngle += this.angWalk;
+            }
+            if (this.currentSize + this.sizeWalk > 0 && this.currentSize + this.sizeWalk < 20) {
+                this.currentSize += this.sizeWalk;
+            }
+            this.radWalk = (p.random(-3, 3) + p.random(-3, 3)) / 2;
+            this.angWalk = p.random(-0.03, 0.03);
+            this.sizeWalk = (p.random(-1, 1) + p.random(-1, 1)) / 2;
+        }
+    }
+};
+
+new p5(colorClock, 'p5colorclock');
